@@ -1,0 +1,1 @@
+# Research Java EE 7 stack

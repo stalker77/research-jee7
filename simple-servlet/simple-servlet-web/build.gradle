@@ -1,0 +1,40 @@
+apply plugin: 'java'
+apply plugin: 'war'
+apply plugin: 'com.bmuschko.cargo'
+
+cargo {
+    containerId = 'wildfly10x'
+    port = 9990
+
+    remote {
+        hostname = '192.168.1.46'
+        username = 'admin'
+        password = '1'
+    }
+
+    local {
+        homeDir = file('d:\\Servers\\wildfly\\standalone\\deployments\\')
+        outputFile = file('build\\output.log')
+        timeout = 60000
+    }
+}
+
+dependencies {
+    compileOnly 'javax:javaee-api:7.0' // work as maven provided
+
+    def cargoVersion = '1.6.5'
+    cargo "org.codehaus.cargo:cargo-core-uberjar:$cargoVersion",
+            "org.codehaus.cargo:cargo-ant:$cargoVersion",
+            "commons-discovery:commons-discovery:0.5",
+            "org.apache.commons:commons-parent:22"
+}
+
+buildscript {
+    repositories {
+        jcenter()
+    }
+
+    dependencies {
+        classpath 'com.bmuschko:gradle-cargo-plugin:2.2.3'
+    }
+}

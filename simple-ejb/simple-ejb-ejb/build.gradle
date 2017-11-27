@@ -1,0 +1,5 @@
+apply plugin: 'java'
+
+dependencies {
+	compileOnly 'javax:javaee-api:7.0' // work as maven provided
+}

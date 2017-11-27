@@ -1,0 +1,3 @@
+rootProject.name = 'simple-servlet'
+include 'simple-servlet-web'
+

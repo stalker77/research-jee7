@@ -1,0 +1,2 @@
+rootProject.name = 'research-jee7'
+include 'simple-ejb-ejb', 'simple-ejb-ear'
